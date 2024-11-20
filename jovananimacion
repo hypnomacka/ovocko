@@ -1,0 +1,29 @@
+import random
+import os
+import time
+
+o = ["🍎", "🍏", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🍈", "🍒", "🍑", "🍍", "🥭", "🥥", "🥝", "🍅"]
+
+while True:
+    input()
+    vytocene = [random.choice(o) for i in range(3)]
+    
+    low = 0
+    while True:
+        l = random.randint(0, len(o) - 1)
+   
+        for i in range(low, 3):
+            try:
+                vytocene[i] = o[o.index(vytocene[i]) + 1]
+            except:
+                vytocene[i] = o[0]
+            
+            
+            if o[l] == vytocene[low]:
+                low += 1
+            
+        if low == 3:
+            break
+        os.system('cls')
+        print(vytocene)
+        time.sleep(0.1)
