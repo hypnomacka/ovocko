@@ -42,19 +42,21 @@ def spin():
 
             if low == 3:
                 break
-            os.system('cls')
+            os.system('clear')
             print(f"[----------]\n[{vytocene[0]}][{vytocene[1]}][{vytocene[2]}]\n[----------]")
             #print(vytocene)
             time.sleep(0.05)
         #print(vytocene)
         #print(f"[{x}] [{y}] [{z}]")
-        if (vytocene[0] == vytocene[1] and vytocene[1] == vytocene[2]):
+        print(f"{o.index(vytocene[0])} {o.index(vytocene[1])} {o.index(vytocene[2])}")
+        if (o.index(vytocene[0]) == o.index(vytocene[1]) and o.index(vytocene[1]) == o.index(vytocene[2])):
+           
             print("jakopt ty kks")
             b += 700
             print(f"penaze: {b} + 700")
             #print("+700")
             pm += 700
-        elif (vytocene[0] == vytocene[1] or vytocene[1] == vytocene[2]):
+        elif (o.index(vytocene[0]) == o.index(vytocene[1]) or o.index(vytocene[1]) == o.index(vytocene[2])):
             b += 20
             print(f"penaze: {b} + 20")
             #print("+700")
