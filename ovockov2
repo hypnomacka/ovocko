@@ -1,0 +1,85 @@
+import random as r
+import time
+
+l = ["🍇", "🍊", "🍌", "🍎", "🍈", "🍋", "🍍", "🍏", "🍉", "🍋‍", "🥭", "🍐", "🍑", "🥝", "🍒", "🍅", "🍓", "🥑"]  # ,"🎰"
+
+b = 450
+pm = b
+s = 0
+def spin():
+    global pm, b, s
+    while True:
+        if (b < 4.5):
+            print("skrachoval si kokotko, ale nevzdavaj sa predaj dom")
+            print(f"prejebal si {pm} na {s} spinoch")
+            break
+        input()
+
+        x = l[r.randint(0, len(l) - 1)]
+        y = l[r.randint(0, len(l) - 1)]
+        z = l[r.randint(0, len(l) - 1)]
+        b -= 4.5
+        s+=1
+        print(f"penaze: {b}")
+        print(f"[{x}] [{y}] [{z}]")
+        if (x == y and y == z):
+            print("jakopt ty kks")
+            b += 700
+            print("+700")
+            pm += 700
+        else:
+            print("-4,5")
+        time.sleep(0.01)
+
+predane = []
+def shop():
+    global b
+    print(f"mas {b} eurko")
+    print("1. predaj gauc za 55e \n2. predaj decko za 44e\n3. predaj manzelku za 200e\n4. predaj auto za 2000\n5. predaj barak za 10000")
+    try:
+        i = int(input("co predas?: "))
+        if (i == 1):
+            if (i in predane):
+                print("to si uz predal kamarat")
+            else:
+                predane.append(i)
+                b += 55
+                print("predal si gauc\n+55e")
+        elif (i == 2):
+            if (i in predane):
+                print("to si uz predal kamarat")
+            else:
+                predane.append(i)
+                b += 44
+                print("predal si decko\n+44e")
+        elif (i == 3):
+            if (i in predane):
+                print("to si uz predal kamarat")
+            else:
+                predane.append(i)
+                b += 200
+                print("predal si manzelku\n+200e (a ticho)")
+        elif (i == 4):
+            if (i in predane):
+                print("to si uz predal kamarat")
+            else:
+                predane.append(i)
+                b += 2000
+                print("predal si auto\n+2000e")
+        elif (i == 5):
+            if (i in predane):
+                print("to si uz predal kamarat")
+            else:
+                predane.append(i)
+                b += 10000
+                print("predal si barak\n+10000e")
+        elif (i > 5):
+            print("taku vec nemas kamosko")
+    except:
+        print("zle ciselko kamosko")
+
+while True:
+    if (b < 4.5):
+        shop()
+    else:
+        spin()
